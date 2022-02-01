@@ -2,6 +2,7 @@ package selenium;
 import java.util.List;
 import java.util.Scanner;
 
+import org.checkerframework.checker.units.qual.s;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
@@ -54,7 +55,7 @@ public class youtubeBOT {
 		WebElement sp= drive.findElement(By.xpath("//button[@title='השהיה (k)' or @title='הפעלה (k)']"));
 		while (b.equals("s/p")) {
 			
-            act.moveToElement(sp).click().perform();
+            sp.click();
 			b=scan.nextLine();
 			b.trim();
 			   if (b.equals("next")) {
@@ -65,8 +66,15 @@ public class youtubeBOT {
 				break;
 			} 
 		}
-		if (b.equals("next")) {break;}
+		 if (b.equals("next")) {
+	        	WebElement next=drive.findElement(By.xpath("//a[@class='ytp-next-button ytp-button']"));
+	        	next.click();
+	        	System.out.println("if u want to stop the song or to continue the song type: 's/p'");
+			   System.out.println("but if u want to close the song type: 'close'");
+			   System.out.println(" if u want to skip the song type: 'next'");
+			   }
 			while (!"close".equals(b)&&!"s/p".equals(b)&&!"next".equals(b)) {
+				WebElement next=drive.findElement(By.xpath("//a[@class='ytp-next-button ytp-button']"));
 				  System.out.println("if u want to stop the song or to continue the song type: 's/p'");
 				   System.out.println("but if u want to close the song type: 'close'");
 				   System.out.println(" if u want to skip the song type: 'next'");
@@ -79,8 +87,11 @@ public class youtubeBOT {
 				    	          break;
 				                    }
 			     	         if (b.equals("next")) {
-			     	        	WebElement next=drive.findElement(By.xpath("//a[@class='ytp-next-button ytp-button']"));
+			 
 			     	        	next.click();
+			     	        	System.out.println("if u want to stop the song or to continue the song type: 's/p'");
+			 				   System.out.println("but if u want to close the song type: 'close'");
+			 				   System.out.println(" if u want to skip the song type: 'next'");
 							}
 				                 }
 				if (b.equals("close")) {
