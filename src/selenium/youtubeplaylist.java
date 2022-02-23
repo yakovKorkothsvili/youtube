@@ -56,7 +56,7 @@ public class youtubeplaylist {
 	
 	
 	    
-		for (int i = 0; i < songs.length; i++) {
+		for (int i = 19; i < songs.length; i++) {
 			serachbox.sendKeys(songs[i]);
 			Thread.sleep(1500);
 			searchbutton.get(1).click();
